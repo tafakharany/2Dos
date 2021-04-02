@@ -1,0 +1,55 @@
+<div class="container conatianer-fluid">
+  <div class="card">
+    <div class="card-header">
+      Featured <span *ngIf="getPendingTaskCount() > 0" [class.bg-danger]="getPendingTaskCount()>3"
+        [class.bg-success]="getPendingTaskCount() <=3">{{getPendingTaskCount()}}</span>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <input #inputTitle (keyup.enter)="addNewTask(inputTitle.value);" type="text" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class=" btn btn-primary" (click)="addNewTask(inputTitle.value);">Add new
+          Task</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Task</th>
+              <th scope="col">Status</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="!isPageLoaded">
+              <td colspan="4">
+                Loading.......
+              </td>
+            <tr *ngIf="tasks.length == 0 && isPageLoaded">
+              <td colspan="4">
+                No Tasks Found
+              </td>
+            </tr>
+            <tr *ngFor="let task of tasks; let i=index">
+              <th scope="row">{{i+1}}</th>
+              <!-- <td><span [Class.text-decoration-line-through]="updateTask(task) == true">{{task.taskTitle}}</span></td> -->
+              <td><span *ngIf="!task.taskStaus" [class.text-decoration-none]="!task.taskStaus"
+                  [class.text-decoration-line-through]="task.taskStatus">{{task.taskTitle}}</span></td>
+              <td>
+                <input (change)="updateTask(task)" [checked]="task.taskStatus"
+                  [Class.todo-complete]="{'todo-complete': !task.taskStatus}" type="checkbox">
+              </td>
+              <td>
+                <button (click)="deleteTask(i)" class="btn-danger">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

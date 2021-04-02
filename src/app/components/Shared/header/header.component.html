@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">2DOS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-danger" routerLink="tasks">
+          Home</a>
+        <a class="nav-link" routerLinkActive="text-danger" routerLink="profile">Link</a>
+        <a class="nav-link" routerLinkActive="text-danger" routerLink="tasks/:taskId">Tasks</a>
+      </div>
+    </div>
+  </div>
+</nav>
