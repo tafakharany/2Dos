@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgClass } from "@angular/common"
 import { Task } from "./../../Models/task"
 @Component({
@@ -10,7 +11,7 @@ export class TasksComponent implements OnInit {
   @Input() item: Task;
   tasks: Task[] = [];
   isPageLoaded = false;
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit(): void {
     this.isPageLoaded = true;
@@ -44,5 +45,10 @@ export class TasksComponent implements OnInit {
   }
   validateLength(title: string): Boolean {
     return title.length === 0;
+  }
+
+  showDetails(i: number)
+    {
+this._router.navigate(['tasks/' + i]);
   }
 }

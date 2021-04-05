@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Task } from './../../Models/task';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
 
   task: Task = new Task();
-  constructor(private _activatedRout: ActivatedRoute) { }
+  constructor(private _activatedRout: ActivatedRoute, private _router: Router) { }
 
   ngOnInit(): void {
-    this.task.taskId = this._activatedRout.snapshot.params.taskId
+    this.task.taskId = this._activatedRout.snapshot.params.taskId;
+  }
+
+  backToHome() {
+    this._router.navigate(['tasks'])
   }
 }
