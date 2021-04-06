@@ -6,10 +6,12 @@
     </div>
     <div class="row">
       <div class="col-md-8">
-        <input #inputTitle (keyup.enter)="addNewTask(inputTitle.value);" type="text" class="form-control">
+        <input #inputTitle (keyup.enter)="addNewTask(inputTitle.value);inputTitle.value = ''" type="text"
+          class="form-control">
       </div>
       <div class="col-md-4">
-        <button type="submit" class=" btn btn-primary" (click)="addNewTask(inputTitle.value);">Add new
+        <button type="submit" class=" btn btn-primary" (click)="addNewTask(inputTitle.value);inputTitle.value = ''">Add
+          new
           Task</button>
       </div>
     </div>
@@ -36,7 +38,6 @@
             </tr>
             <tr *ngFor="let task of tasks; let i=index">
               <th scope="row">{{i+1}}</th>
-              <!-- <td><span [Class.text-decoration-line-through]="updateTask(task) == true">{{task.taskTitle}}</span></td> -->
               <td><span *ngIf="!task.taskStaus" [class.text-decoration-none]="!task.taskStaus"
                   [class.text-decoration-line-through]="task.taskStatus">{{task.taskTitle}}</span></td>
               <td>

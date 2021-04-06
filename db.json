@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "json-server setup",
+      "stauts": false
+    },
+    {
+      "id": 2,
+      "title": "json-server configure ",
+      "stauts": false
+    },
+    {
+      "id": 3,
+      "title": "json-server Using",
+      "stauts": true
+    },
+    {
+      "id": 4,
+      "title": "json-server Perpare Data",
+      "stauts": false
+    },
+    {
+      "id": 5,
+      "title": "json-server Perpare Data1",
+      "stauts": true
+    },
+    {
+      "title": "json-server Perpare Data12",
+      "stauts": true,
+      "id": 6
+    }
+  ]
+}

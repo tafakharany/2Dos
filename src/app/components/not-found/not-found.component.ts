@@ -12,7 +12,7 @@ export class NotFoundComponent implements OnInit {
 
   navigateToHome() {
     console.log("Navigate to home");
-    this._router.navigate(['home'])
+    this._router.navigate(['tasks'])
   }
 
 
